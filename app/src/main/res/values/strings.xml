@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Task21.1</string>
+    <string name="hint_money">Ввод денег</string>
+    <string name="hint_pay">Информация об оплате</string>
+    <string name="but_ok">OK</string>
+    <string name="pay_card">С банковской карты</string>
+    <string name="pay_phone">С мобильного телефона</string>
+    <string name="pay_cash">Наличными по адресу</string>
+</resources>
