@@ -12,35 +12,30 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText mInputMoney;
     private EditText mInputInfo;
     private Button mBtnOk;
     private CheckBox mBankCardChkBx;
     private CheckBox mMobilePhoneChkBx;
     private CheckBox mCashAddressChkBx;
-    int varCheckBox;
 
     CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {
-        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-            if (b) {
+        public void onCheckedChanged(CompoundButton compoundButton, boolean check) {
+            if (check) {
                 switch (compoundButton.getId()) {
                     case R.id.bankCardChkBx:
                         resetCheckBoxes();
                         mBankCardChkBx.setChecked(true);
                         mInputInfo.setInputType(InputType.TYPE_CLASS_NUMBER);
-                        varCheckBox = 1;
                         break;
                     case R.id.mobilePhoneChkBx:
                         resetCheckBoxes();
                         mMobilePhoneChkBx.setChecked(true);
                         mInputInfo.setInputType(InputType.TYPE_CLASS_PHONE);
-                        varCheckBox = 2;
                         break;
                     case R.id.cashAddressChkBx:
                         resetCheckBoxes();
                         mInputInfo.setInputType(InputType.TYPE_CLASS_TEXT);
                         mCashAddressChkBx.setChecked(true);
-                        varCheckBox = 3;
                         break;
                     default:
                 }
@@ -64,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (varCheckBox == 1) {
-                    Toast.makeText(MainActivity.this, "Произведена оплата банковской картой", Toast.LENGTH_LONG).show();
-                } else if (varCheckBox == 2) {
-                    Toast.makeText(MainActivity.this, "Произведена оплата c мобильного телефона", Toast.LENGTH_LONG).show();
-                } else if (varCheckBox == 3) {
-                    Toast.makeText(MainActivity.this, "Произведена оплата наличными", Toast.LENGTH_LONG).show();
+                if (mBankCardChkBx.isChecked()) {
+                    Toast.makeText(MainActivity.this, R.string.toast_card, Toast.LENGTH_LONG).show();
+                } else if (mMobilePhoneChkBx.isChecked()) {
+                    Toast.makeText(MainActivity.this, R.string.toast_phone, Toast.LENGTH_LONG).show();
+                } else if (mCashAddressChkBx.isChecked()) {
+                    Toast.makeText(MainActivity.this, R.string.toast_cash, Toast.LENGTH_LONG).show();
 
                 }
             }
@@ -77,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        mInputMoney = findViewById(R.id.inputMoney);
         mInputInfo = findViewById(R.id.inputInfo);
         mBtnOk = findViewById(R.id.btnOK);
         mBankCardChkBx = findViewById(R.id.bankCardChkBx);

@@ -6,4 +6,7 @@
     <string name="pay_card">С банковской карты</string>
     <string name="pay_phone">С мобильного телефона</string>
     <string name="pay_cash">Наличными по адресу</string>
+    <string name="toast_card">Произведена оплата банковской картой</string>
+    <string name="toast_phone">Произведена оплата c мобильного телефона</string>
+    <string name="toast_cash">Произведена оплата наличными</string>
 </resources>
